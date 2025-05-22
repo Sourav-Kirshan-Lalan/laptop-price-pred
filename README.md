@@ -1,4 +1,3 @@
-# laptop-price-pred
 # Laptop Price Predictor
 
 ## Overview
