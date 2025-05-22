@@ -1,46 +1,75 @@
-# Laptop Price Predictor
+# 💻 Laptop Price Predictor — A Machine Learning Project
 
-## Overview
-This Jupyter notebook analyzes laptop specifications and builds a foundation for price prediction through exploratory data analysis (EDA) and data preprocessing. The project uses Python data science libraries to process and visualize laptop features like RAM, weight, screen size, and company brand.
+## Project Explanation
 
-## Dataset
-**File:** `laptop_data.csv`  
-**Features:**
-- Company (Manufacturer)
-- TypeName (Laptop category)
-- Inches (Screen size)
-- ScreenResolution
-- CPU 
-- RAM 
-- Memory (Storage)
-- GPU
-- OpSys (Operating System)
+The **Laptop Price Predictor** is a data-driven machine learning project designed to estimate the price of laptops based on various hardware and brand specifications. The primary goal is to provide users — whether buyers, sellers, or analysts — with a tool that can predict the fair market price of a laptop configuration using supervised learning techniques.
+
+## Objective
+
+To build a regression model that accurately predicts laptop prices from a dataset of laptop specifications by following a complete machine learning pipeline — from preprocessing to model evaluation.
+
+---
+
+## Tools and Technologies
+
+- **Python** – Programming language
+- **Pandas & NumPy** – Data manipulation
+- **Matplotlib & Seaborn** – Data visualization
+- **Scikit-learn** – Machine learning
+- **Jupyter Notebook** – Development environment
+
+---
+
+## Project Workflow
+
+### 1. **Data Cleaning**
+- Loaded raw laptop data.
+- Handled missing values and inconsistent formats.
+- Converted binary attributes (like touchscreen, IPS) into 0/1.
+
+### 2. **Feature Engineering**
+- Extracted screen size from resolution.
+- Converted storage columns (HDD/SSD) to numeric.
+- Created new features like PPI (pixels per inch) for better model accuracy.
+
+### 3. **Exploratory Data Analysis (EDA)**
+- Visualized relationships between features and price.
+- Checked feature distributions, correlations, and outliers.
+
+### 4. **Model Building**
+- Tested multiple regression models including:
+  - **Linear Regression**
+  - **Random Forest Regressor**
+- Performed train/test split and evaluated with:
+  - R² Score
+  - Cross-validation
+
+### 5. **Prediction**
+- Final model can predict prices based on new input features.
+
+---
+
+## Sample Features Used
+
+- Brand (Company)
+- Laptop Type (Ultrabook, Gaming, etc.)
+- RAM (in GB)
 - Weight
-- Price (Target variable)
+- Touchscreen
+- IPS Panel
+- Screen Size
+- Resolution
+- CPU Brand
+- Storage (HDD & SSD)
+- GPU
+- Operating System
 
-## Key Steps
+---
 
-### 1. Data Loading & Initial Inspection
-- Imports essential libraries (Pandas, NumPy, Matplotlib/Seaborn)
-- Loads dataset and displays first 5 rows
-- Checks dataset dimensions (1303 rows × 12 columns)
-- Examines data types and missing values
+## Results & Insights
 
-### 2. Data Cleaning
-- Removes unnecessary "Unnamed: 0" column
-- Converts:
-  - RAM from string ("8GB") to integer
-  - Weight from string ("1.37kg") to float
-- Checks for duplicates and missing values (none found)
+- Random Forest Regressor outperformed other models with the best R² score.
+- Features like brand, RAM, CPU, and display resolution had a significant impact on price.
+- Proper feature engineering (like PPI) greatly enhanced model accuracy.
 
-### 3. Exploratory Data Analysis
-**Key Visualizations:**
-- Price distribution using distplot
-- Company distribution with bar plot
-- Laptop type distribution
-- Manufacturer vs. Price relationships
 
-## Usage
-1. Install dependencies:
-```bash
-pip install pandas numpy matplotlib seaborn
