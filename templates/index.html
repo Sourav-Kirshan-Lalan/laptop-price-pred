@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Laptop Price Predictor</title>
+    <style>
+        body {
+            background-color: #001f3f; /* Navy Blue */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            margin: 0;
+        }
+        h1 {
+            margin-bottom: 30px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            display: inline-block;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 100%;
+        }
+        form label {
+            display: block;
+            margin-top: 15px;
+            font-size: 16px;
+            text-align: left;
+            color: #e0e0e0;
+        }
+        select, input[type="number"], button {
+            margin-top: 5px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            width: 100%;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #0074D9;
+            color: white;
+            margin-top: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+        }
+        button:hover {
+            background-color: #005fa3;
+        }
+        .result {
+            margin-top: 30px;
+            font-size: 22px;
+            color: #00ffcc;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <h1>Laptop Price Predictor</h1>
+    <div class="container">
+        <form method="POST" action="/predict">
+            <label for="company">Brand:</label>
+            <select name="company" id="company" required>
+                {% for val in companies %}
+                    <option value="{{ val }}">{{ val }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="type">Type:</label>
+            <select name="type" id="type" required>
+                {% for val in types %}
+                    <option value="{{ val }}">{{ val }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="ram">RAM (GB):</label>
+            <select name="ram" id="ram" required>
+                {% for val in [2,4,6,8,12,16,24,32,64] %}
+                    <option value="{{ val }}">{{ val }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" name="weight" step="any" min="0" required />
+
+            <label for="touchscreen">Touchscreen:</label>
+            <select name="touchscreen" id="touchscreen" required>
+                <option>No</option>
+                <option>Yes</option>
+            </select>
+
+            <label for="ips">IPS:</label>
+            <select name="ips" id="ips" required>
+                <option>No</option>
+                <option>Yes</option>
+            </select>
+
+            <label for="screen_size">Screen Size (inches):</label>
+            <input type="number" id="screen_size" name="screen_size" step="0.1" min="10" max="18" required />
+
+            <label for="resolution">Resolution:</label>
+            <select name="resolution" id="resolution" required>
+                {% for val in ['1920x1080','1366x768','1600x900','3840x2160','3200x1800','2880x1800','2560x1600','2560x1440','2304x1440'] %}
+                    <option value="{{ val }}">{{ val }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="cpu">CPU:</label>
+            <select name="cpu" id="cpu" required>
+                {% for val in cpus %}
+                    <option value="{{ val }}">{{ val }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="hdd">HDD (GB):</label>
+            <select name="hdd" id="hdd" required>
+                {% for val in [0,128,256,512,1024,2048] %}
+                    <option value="{{ val }}">{{ val }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="ssd">SSD (GB):</label>
+            <select name="ssd" id="ssd" required>
+                {% for val in [0,8,128,256,512,1024] %}
+                    <option value="{{ val }}">{{ val }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="gpu">GPU:</label>
+            <select name="gpu" id="gpu" required>
+                {% for val in gpus %}
+                    <option value="{{ val }}">{{ val }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="os">Operating System:</label>
+            <select name="os" id="os" required>
+                {% for val in os_list %}
+                    <option value="{{ val }}">{{ val }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Predict Price</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                The predicted price of this configuration is PKR{{ prediction }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
