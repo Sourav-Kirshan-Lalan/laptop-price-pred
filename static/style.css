@@ -1,0 +1,66 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 50px 50px 60px 50px;   /* More padding */
+    border-radius: 20px;
+    display: inline-block;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+    max-width: 600px;  /* wider form */
+    width: 100%;
+}
+
+form label {
+    display: block;
+    margin-top: 25px;  /* more vertical spacing */
+    font-size: 18px;   /* bigger labels */
+    font-weight: 600;
+    text-align: left;
+    color: #e0e0e0;
+}
+
+select, input[type="number"], button {
+    margin-top: 10px;
+    padding: 16px 14px;    /* taller inputs */
+    border-radius: 8px;
+    border: 3px solid #0074D9;  /* thicker border */
+    width: 100%;
+    font-size: 18px;  /* bigger font */
+    font-weight: 600;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+button {
+    background-color: #0074D9;
+    color: white;
+    margin-top: 35px;
+    cursor: pointer;
+    font-weight: 900;
+    font-size: 22px;
+    border: none;
+    border-radius: 8px;
+    padding: 18px 0;
+    box-shadow: 0 6px 14px #005fa3;
+    letter-spacing: 1.3px;
+}
+
+button:hover {
+    background-color: #005fa3;
+    box-shadow: 0 8px 18px #003f6b;
+}
+
+
+.result {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 20px;
+    color: green;
+    font-weight: bold;
+}
