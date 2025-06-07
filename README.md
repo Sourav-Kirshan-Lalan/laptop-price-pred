@@ -4,6 +4,7 @@
 
 The **Laptop Price Predictor** is a data-driven machine learning project designed to estimate the price of laptops based on various hardware and brand specifications. The primary goal is to provide users — whether buyers, sellers, or analysts — with a tool that can predict the fair market price of a laptop configuration using supervised learning techniques.
 
+## Live Demo: https://web-production-5d5f.up.railway.app/
 ## Objective
 
 To build a regression model that accurately predicts laptop prices from a dataset of laptop specifications by following a complete machine learning pipeline — from preprocessing to model evaluation.
